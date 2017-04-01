@@ -18,6 +18,7 @@ KeyboardHandler::~KeyboardHandler()
 bool KeyboardHandler::getKey(KeyCode keyCode)
 {
 	return m_key_state[0][static_cast<unsigned int>(keyCode)];
+	std::cout << __FILE__ << __func__ << std::endl;
 }
 
 bool KeyboardHandler::getKeyDown(KeyCode keyCode)

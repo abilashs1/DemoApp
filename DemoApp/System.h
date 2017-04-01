@@ -103,10 +103,10 @@ public:
 	bool run();
 private:
 	std::unordered_map< std::type_index, std::shared_ptr< EventHandler >>	m_handler_map;
-	std::vector<std::shared_ptr< EventHandler> >							m_handlers;
-	std::unordered_map< std::type_index, std::shared_ptr< Controller >>		m_controller_map;
+	std::vector<std::shared_ptr< EventHandler> >								m_handlers;
+	std::unordered_map< std::type_index, std::shared_ptr< Controller >>	m_controller_map;
 	std::unordered_map< unsigned int, std::shared_ptr< Object >>			m_object_map;
-	std::vector<std::shared_ptr<Object>>									m_objects;
-	BaseWindow*																m_window;
+	std::vector<std::shared_ptr<Object>>										m_objects;
+	BaseWindow*																	m_window;
 };
 

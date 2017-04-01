@@ -148,13 +148,13 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
+    <ClCompile Include="CarController.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventHandler.cpp" />
-    <ClCompile Include="KeyboardController.cpp" />
+    <ClCompile Include="FlightController.cpp" />
     <ClCompile Include="KeyboardHandler.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MouseController.cpp" />
     <ClCompile Include="MouseHandler.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="System.cpp" />
@@ -164,13 +164,13 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="BaseWindow.h" />
+    <ClInclude Include="CarController.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="defines.h" />
     <ClInclude Include="EventHandler.h" />
-    <ClInclude Include="KeyboardController.h" />
+    <ClInclude Include="FlightController.h" />
     <ClInclude Include="KeyboardHandler.h" />
-    <ClInclude Include="MouseController.h" />
     <ClInclude Include="MouseHandler.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="System.h" />

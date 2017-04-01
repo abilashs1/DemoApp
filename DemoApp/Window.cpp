@@ -56,8 +56,13 @@ LRESULT CALLBACK Window::WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
 	}
 	case WM_MOUSEMOVE:
 	{
-		data.eventCode(EventCode::MOUSEMOVE);
+		//data.eventCode(EventCode::MOUSEMOVE);
 		//			EventHandler->OnMouseMove(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+		break;
+	}
+	case WM_LBUTTONDOWN:
+	{
+		data.eventCode(EventCode::MOUSEMOVE);
 		break;
 	}
 	case WM_SIZE:

@@ -2,9 +2,9 @@
 
 #include "System.h"
 #include "KeyBoardHandler.h"
-#include "KeyboardController.h"
 #include "MouseHandler.h"
-#include "MouseController.h"
+#include "CarController.h"
+#include "FlightController.h"
 Application::Application(Platform type):m_platform(type)
 {
 	
@@ -18,22 +18,46 @@ Application::~Application()
 void Application::initialise()
 {
 	m_system = std::make_unique<System>(m_platform);
+	auto mouse = m_system->addEventHandler<MouseHandler>(m_platform);
+	mouse->registerEvent(EventCode::MOUSEMOVE);
 
+	auto kbd = m_system->addEventHandler<KeyboardHandler>(m_platform);
+	kbd->registerEvent(EventCode::KEYDOWN);
+	kbd->registerEvent(EventCode::KEYUP);
+
+	auto fctrK = m_system->addController<FlightController>(kbd);
+	auto fctrM = m_system->addController<FlightController>(mouse);
+	auto ctrM = m_system->addController<CarController>(mouse);
+	auto ctrK = m_system->addController<CarController>(kbd);
+	
 	{
-		auto mouse = m_system->addEventHandler<MouseHandler>(m_platform);
-		auto ctr = m_system->addController<MouseController>(mouse);
+		
+		
 		auto obj = m_system->addObject<Object>(1);
-		obj->setController(ctr);
-		mouse->registerEvent(EventCode::MOUSEMOVE);
+		obj->setController(fctrM);
+		
 	}
 	{
-		auto kbd = m_system->addEventHandler<KeyboardHandler>(m_platform);
-		auto ctr = m_system->addController<KeyboardController>(kbd);
+		
+		
 		auto obj = m_system->addObject<Object>(2);
-		obj->setController(ctr);
-		kbd->registerEvent(EventCode::KEYDOWN);
-		kbd->registerEvent(EventCode::KEYUP);
+		obj->setController(fctrK);
+	
 	}
+	{
+		
+		
+		auto obj = m_system->addObject<Object>(3);
+		obj->setController(ctrK);
+
+	}
+	{
+		
+		auto obj = m_system->addObject<Object>(4);
+		obj->setController(ctrM);
+		
+	}
+
 }
 
 void Application::run()
